@@ -7,7 +7,7 @@ export default function TableHeading({
   sort_field = null,
   sort_direction = null,
   sortChanged = () => {},
-  children
+  children,
 }) {
   return (
     <th onClick={(e) => sortChanged(name)}>
@@ -26,8 +26,7 @@ export default function TableHeading({
             <ChevronDownIcon
               className={
                 "w-4 -mt-2 " +
-                (sort_field === name &&
-                sort_direction === "desc"
+                (sort_field === name && sort_direction === "desc"
                   ? "text-white"
                   : "")
               }

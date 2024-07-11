@@ -34,7 +34,7 @@ class ProjectController extends Controller
 
         return inertia("Projects/Index", [
             'projects' => ProjectResource::collection($projects),
-            'queryParams' => request()->query() ?: null,
+            'queryParams' => request('')->query() ?: null,
         ]);
     }
 
