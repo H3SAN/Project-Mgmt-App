@@ -1,5 +1,4 @@
-import { ChevronUpIcon } from "@heroicons/react/16/solid";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/16/solid";
 
 export default function TableHeading({
   name,
@@ -11,7 +10,7 @@ export default function TableHeading({
 }) {
   return (
     <th onClick={(e) => sortChanged(name)}>
-      <div className="px-3 py-2 flex items-center justify-between gap-1 cursor-pointer">
+      <div className="px-3 py-3 flex items-center justify-between gap-1 cursor-pointer">
         {children}
         {sortable && (
           <div>

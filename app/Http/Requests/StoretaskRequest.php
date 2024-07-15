@@ -3,15 +3,16 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StoretaskRequest extends FormRequest
+class StoreTaskRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,20 @@ class StoretaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "name" => ['required', 'max:255'],
+            'image' => ['nullable', 'image'],
+            "description" => ['nullable', 'string'],
+            'due_date' => ['nullable', 'date'],
+            'project_id' => ['required', 'exists:projects,id'],
+            'assigned_user_id' => ['required', 'exists:users,id'],
+            'status' => [
+                'required',
+                Rule::in(['pending', 'in_progress', 'completed'])
+            ],
+            'priority' => [
+                'required',
+                Rule::in(['low', 'medium', 'high'])
+            ]
         ];
     }
 }

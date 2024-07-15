@@ -5,7 +5,7 @@ import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 
-export default function Authenticated({ user, header, children }) {
+export default function AuthenticatedLayout({ user, header, children }) {
   const [showingNavigationDropdown, setShowingNavigationDropdown] =
     useState(false);
 
@@ -45,6 +45,12 @@ export default function Authenticated({ user, header, children }) {
                   active={route().current("user.index")}
                 >
                   Users
+                </NavLink>
+                <NavLink
+                  href={route("task.myTasks")}
+                  active={route().current("task.myTasks")}
+                >
+                  My Tasks
                 </NavLink>
               </div>
             </div>
